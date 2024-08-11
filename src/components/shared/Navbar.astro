@@ -1,0 +1,44 @@
+---
+const { isLoggedIn, isAdmin } = Astro.locals;
+---
+
+<!-- component en nav //fixed top-0 w-full z-10 h-20 --> 
+<nav class="flex justify-between px-20 py-10 items-center fixed top-0 w-full z-10 h-20 " style="background-color: transparent">
+  <h1 class="text-xl text-pink-300 font-bold"><a href="/">FENICE</a></h1>
+  <div class="flex items-center">
+    <ul class="flex items-center space-x-6">
+      <li class="font-semibold text-pink-300">
+        <a href="/">Home</a>
+      </li>
+      {
+        isAdmin && (
+          <li class="font-semibold text-pink-300">
+            <a href="/admin/dashboard">Admin</a>
+          </li>
+        )
+      }
+
+      {
+        !isLoggedIn ? (
+          <li class="font-semibold text-pink-300">
+            <a href="/login">Ingresar</a>
+          </li>
+        ) : (
+          <li id="logout" class="font-semibold text-pink-300">
+            <a href="#">Salir</a>
+          </li>
+        )
+      }
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const {signOut} = await import('auth-astro/client')
+  const logoutElem = document.querySelector('#logout') as HTMLLIElement;
+
+  logoutElem?.addEventListener('click', async () => {
+    await signOut();
+    window.location.href = '/';
+  });
+</script>

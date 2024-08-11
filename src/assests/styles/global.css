@@ -1,0 +1,25 @@
+html,
+body {
+  background-color: #000000;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(56, 0, 112) rgb(0, 0, 0);
+}
+h1 {
+  @apply text-3xl font-bold;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-xl;
+}
+
+h4 {
+  @apply text-lg font-bold;
+}
+
+h5 {
+  @apply text-base;
+}
