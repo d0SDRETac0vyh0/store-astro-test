@@ -8,7 +8,7 @@ import { actions } from 'astro:actions';
 const searchParams= Astro.url.searchParams;
 const pageParam = Number(searchParams.get('page') ?? 1);
 
-const { data, error } = await actions.getProductsByPage({
+const { data, error } = await actions.getProductsByPage.safe({
   page: pageParam,
   limit:6
 });
@@ -17,12 +17,15 @@ if (error) {
   return Astro.redirect('/');
 }
 
-
 const {products, totalPages} = data;
+
+if(data.products.length == 0){
+  return Astro.redirect('/');
+}
 ---
 
 <MainLayout>
-  <h1 class="text-3xl text-pink-500">Listado de productos</h1>
+  <h1 class="text-3xl" style="color: #EEB8C4;">Listado de productos</h1>
 
   <ProductList products={products} client:idle />
 

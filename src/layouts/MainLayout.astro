@@ -2,6 +2,7 @@
 import Navbar from '@/components/shared/Navbar.astro';
 
 import '@/assests/styles/global.css'
+import { ViewTransitions } from 'astro:transitions';
 
 
 interface Props {
@@ -20,11 +21,13 @@ const { title = 'Astro Store' } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+   <ViewTransitions />  
   </head>
   <body>
     <Navbar />
 
-    <main class="container m-auto max-w-3xl px-5 mt-20">
+    <main class="container m-auto max-w-4xl px-5 mt-20">
       <slot />
     </main>
   </body>

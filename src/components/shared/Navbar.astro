@@ -1,4 +1,6 @@
 ---
+import { CartCounter } from "@/components";
+
 const { isLoggedIn, isAdmin } = Astro.locals;
 ---
 
@@ -7,7 +9,8 @@ const { isLoggedIn, isAdmin } = Astro.locals;
   <h1 class="text-xl text-pink-300 font-bold"><a href="/">FENICE</a></h1>
   <div class="flex items-center">
     <ul class="flex items-center space-x-6">
-      <li class="font-semibold text-pink-300">
+      <CartCounter client:load transition:persist/>
+      <li class="font-semibold" style="color: #EEB8C4;">
         <a href="/">Home</a>
       </li>
       {
@@ -20,11 +23,11 @@ const { isLoggedIn, isAdmin } = Astro.locals;
 
       {
         !isLoggedIn ? (
-          <li class="font-semibold text-pink-300">
+          <li class="font-semibold" style="color: #EEB8C4;">
             <a href="/login">Ingresar</a>
           </li>
         ) : (
-          <li id="logout" class="font-semibold text-pink-300">
+          <li id="logout" class="font-semibold" style="color: #EEB8C4;">
             <a href="#">Salir</a>
           </li>
         )
