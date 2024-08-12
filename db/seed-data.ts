@@ -30,15 +30,15 @@ export const seedProducts: SeedProduct[] = [
   },
   {
     description:
-      "The Men's Quilted Shirt Jacket features a uniquely fit, quilted design for warmth and mobility in cold weather seasons. With an overall street-smart aesthetic, the jacket features subtle silicone injected Tesla logos below the back collar and on the right sleeve, as well as custom matte metal zipper pulls. Made from 87% nylon and 13% polyurethane.",
-    images: ['1740507-00-A_0_2000.jpg', '1740507-00-A_1.jpg'],
+      "El iPhone 14 Pro te permite captar detalles increíbles gracias a su cámara gran angular de 48MP. Además, trae la Dynamic Island y una pantalla siempre activa, para que puedas interactuar con tu iPhone de una forma completamente nueva. Y viene con Detección de Choques1, una funcionalidad de seguridad que pide ayuda cuando no estás en condiciones de hacerlo.",
+    images: ['iPhone_14_Pro_Gold_PDP_Image_Position-1a__en-US.webp', 'Apple-iPhone-14-Pro-60d92f1.jpg'],
     stock: 5,
-    price: 200,
+    price: 1499000,
     sizes: ['XS', 'S', 'M', 'XL', 'XXL'],
-    slug: 'men_quilted_shirt_jacket',
+    slug: 'iphone_14_pro_max_chile_price',
     type: 'shirts',
     tags: ['jacket'],
-    title: "Men's Quilted Shirt Jacket",
+    title: "Apple iPhone 14 Pro",
     gender: 'men',
   },
 
