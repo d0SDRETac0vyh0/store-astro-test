@@ -1,3 +1,5 @@
+// src/components/products/ProductList.tsx
+
 import type { ProductWithImages } from '@/interfaces';
 import { ProductCard } from './ProductCard';
 

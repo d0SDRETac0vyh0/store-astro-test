@@ -9,7 +9,15 @@ const { isLoggedIn, isAdmin } = Astro.locals;
   <h1 class="text-xl text-pink-300 font-bold"><a href="/">FENICE</a></h1>
   <div class="flex items-center">
     <ul class="flex items-center space-x-6">
+      <li class="font-semibold" style="color: #EEB8C4;">
+        <a href="/kid">Kid</a>
+      </li>
+      <li class="font-semibold" style="color: #EEB8C4;">
+        <a href="/men">Men</a>
+      </li>
+
       <CartCounter client:load transition:persist/>
+      
       <li class="font-semibold" style="color: #EEB8C4;">
         <a href="/">Home</a>
       </li>

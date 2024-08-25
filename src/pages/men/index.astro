@@ -1,6 +1,5 @@
 ---
-// src/pages/index.astro
-
+// src/pages/men/index.astro
 import { ProductList } from '@/components';
 import Pagination from '@/components/shared/Pagination.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
@@ -13,7 +12,7 @@ const pageParam = Number(searchParams.get('page') ?? 1);
 const { data, error } = await actions.getProductsByPage.safe({
   page: pageParam,
   limit:6,
-  gender:'women',
+  gender:'men',
 });
 
 if (error) {

@@ -1,3 +1,4 @@
+// src/components/products/ProductCard.tsx
 import type { ProductWithImages } from "@/interfaces";
 import { useState } from "react";
 

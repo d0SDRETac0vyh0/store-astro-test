@@ -1,3 +1,4 @@
+// src/interfaces/product-with-images.interface.ts
 export interface ProductWithImages {
     id: string;
     description: string;

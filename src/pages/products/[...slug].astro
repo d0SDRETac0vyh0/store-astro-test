@@ -1,4 +1,6 @@
 ---
+// src/pages/products/[...slug].astro
+
 import ProductSlideshow from "@/components/products/ProductSlideshow.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import {actions} from 'astro:actions';  
@@ -15,9 +17,6 @@ const { product, images } = data;
 const image = images[0].image.startsWith('http')
   ? images[0].image
   : `${import.meta.env.PUBLIC_URL}/images/products/${images[0].image}`;
-
-
-
 ---
 
 <MainLayout
