@@ -13,8 +13,8 @@ export default async function seed() {
   const johnDoe = {
     id: 'ABC-123-JOHN',
     name: 'John Doe',
-    email: 'john.doe@google.com',
-    password: bcrypt.hashSync('123456'),
+    email: 'superadmin@admin.cl',
+    password: bcrypt.hashSync('ADMINFenice2042'),
     role: 'admin',
   };
 
