@@ -10,7 +10,11 @@ if (error) {
     return Astro.redirect('/404')
 }
 
-const {product, images} = data;
+const { product, images } = data;
+
+const image = images[0].image.startsWith('http')
+  ? images[0].image
+  : `${import.meta.env.PUBLIC_URL}/images/products/${images[0].image}`;
 
 
 
@@ -19,6 +23,7 @@ const {product, images} = data;
 <MainLayout
   title={product.title}
   description={product.description}
+  image={image}
     >
     <!-- image={image} -->
   <!-- <h1 class="text-pink-300">{product.title}</h1> -->
