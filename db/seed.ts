@@ -10,9 +10,9 @@ export default async function seed() {
     { id: 'user', name: 'Usuario de sistema' },
   ];
 
-  const johnDoe = {
-    id: 'ABC-123-JOHN',
-    name: 'John Doe',
+  const feniceAdmin = {
+    id: 'ABC-123-ADMIN',
+    name: 'Fenice Admin',
     email: 'superadmin@admin.cl',
     password: bcrypt.hashSync('ADMINFenice2042'),
     role: 'admin',
@@ -27,7 +27,7 @@ export default async function seed() {
   };
 
   await db.insert(Role).values(roles);
-  await db.insert(User).values([johnDoe, janeDoe]);
+  await db.insert(User).values([feniceAdmin, janeDoe]);
 
   const queries: any = [];
 
@@ -43,7 +43,7 @@ export default async function seed() {
       tags: p.tags.join(','),
       title: p.title,
       type: p.type,
-      user: johnDoe.id,
+      user: feniceAdmin.id,
     };
 
     queries.push(db.insert(Product).values(product));
