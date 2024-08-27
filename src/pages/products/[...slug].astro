@@ -34,7 +34,7 @@ const image = images[0].image.startsWith('http')
       <h2 class="text-2xl font-bold text-pink-300">{product.title}</h2>
       <h2 class="font-bold text-pink-300">${product.price}</h2>
 
-      <h3 class="mt-5 text-pink-300">Tallas</h3>
+      <h3 class="mt-5 text-pink-300">Tallas disponibles</h3>
       <ul class="flex gap-3 text-pink-300">
         {
           product.sizes
@@ -43,16 +43,24 @@ const image = images[0].image.startsWith('http')
         }
       </ul>
 
-      <h3 class="mt-5 text-pink-300">Cantidad</h3>
+      <!-- <h3 class="mt-5 text-pink-300">Cantidad disponible</h3>
       <div>
         <button class="btn-quantity text-pink-300">-</button>
         <input type="number" min="1" value="1" />
         <button class="btn-quantity text-pink-300">+</button>
-      </div>
+      </div> -->
 
-      <button class="mt-5 bg-fuchsia-600 text-white p-3 w-full disabled:bg-slate-500 rounded-xl"
-        >Añadir al carrito</button
-      >
+      <button class="mt-5 bg-fuchsia-600 text-white p-3 w-full disabled:bg-slate-500 rounded-xl snipcart-add-item"
+      data-item-id={data.product.id}
+      data-item-categories={data.product.gender}
+      data-item-name={data.product.title}
+      data-item-price={data.product.price}
+      data-item-custom1-name="Talla"
+      data-item-custom1-options={product.sizes.split(',').join('|')} 
+      data-item-custom1-value=""
+  >   
+      Añadir al carrito
+  </button>
 
       <h3 class="mt-10 text-pink-300">Descripción</h3>
       <p class="text-pink-300">{product.description}</p>
@@ -117,7 +125,7 @@ const image = images[0].image.startsWith('http')
 
       // TODO: cambiar luego cuando tengamos los ViewTransitions
       // window.location.href = '/cart';
-      await navigate('/cart');
+      await navigate('/#/cart');
     });
   });
 </script>
