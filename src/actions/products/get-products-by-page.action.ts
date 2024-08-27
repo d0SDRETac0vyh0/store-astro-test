@@ -5,11 +5,12 @@ import { count, db, eq, Product, ProductImage, sql } from 'astro:db';
 
 export const getProductsByPage = defineAction({
   accept: 'json',
-  input: z.object({
-    page: z.number().optional().default(1),
-    limit: z.number().optional().default(6),
+  input:    z.object({
+    page:   z.number().optional().default(1),
+    limit:  z.number().optional().default(6),
     gender: z.string().optional(),
   }),
+
   handler: async ({ page, limit, gender }) => {
     page = page <= 0 ? 1 : page;
 
