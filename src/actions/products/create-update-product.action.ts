@@ -22,6 +22,7 @@ export const createUpdateProduct = defineAction({
     gender: z.string(),
     price: z.number(),
     sizes: z.string(),
+    colors: z.string(),
     slug: z.string(),
     stock: z.number(),
     tags: z.string(),

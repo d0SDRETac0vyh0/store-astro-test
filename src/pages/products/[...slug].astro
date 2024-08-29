@@ -34,6 +34,15 @@ const image = images[0].image.startsWith('http')
       <h2 class="text-2xl font-bold text-pink-300">{product.title}</h2>
       <h2 class="font-bold text-pink-300">${product.price}</h2>
 
+      <h3 class="mt-5 text-pink-300">Colores disponibles</h3>
+      <ul class="flex gap-3 text-pink-300">
+        {
+          product.colors
+            .split(',')
+            .map((color) => <li data-color={color}>{color}  </li>)
+        }
+      </ul>
+
       <h3 class="mt-5 text-pink-300">Tallas disponibles</h3>
       <ul class="flex gap-3 text-pink-300">
         {
@@ -58,6 +67,11 @@ const image = images[0].image.startsWith('http')
       data-item-custom1-name="Talla"
       data-item-custom1-options={product.sizes.split(',').join('|')} 
       data-item-custom1-value=""
+
+      data-item-custom2-name="Colores disponibles"
+      data-item-custom2-value=""
+      data-item-custom2-options={product.colors.split(',').join('|')}
+
   >   
       Añadir al carrito
   </button>

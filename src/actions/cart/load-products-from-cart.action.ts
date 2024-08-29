@@ -1,3 +1,4 @@
+// src/actions/cart/load-products-from-CartCookiesClient.action.ts
 import type { CartItem } from '@/interfaces';
 import { defineAction, z } from 'astro:actions';
 import { db, eq, inArray, Product, ProductImage } from 'astro:db';

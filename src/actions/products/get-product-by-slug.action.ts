@@ -7,6 +7,7 @@ const newProduct = {
     gender: 'men',
     price: 100,
     sizes: 'XS,S,M',
+    colors: 'red,blue,black',
     slug: 'nuevo-producto',
     stock: 5,
     tags: 'shirt,men,nuevo',

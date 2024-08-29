@@ -17,7 +17,7 @@ const Role = defineTable({
     name: column.text(),
   },
 });
-
+8
 // Productos
 const Product = defineTable({
   columns: {
@@ -26,6 +26,7 @@ const Product = defineTable({
     gender: column.text(),
     price: column.number(),
     sizes: column.text(),
+    colors: column.text(), 
     slug: column.text({ unique: true }),
     stock: column.number(),
     tags: column.text(),

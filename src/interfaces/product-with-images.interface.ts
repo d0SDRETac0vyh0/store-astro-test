@@ -5,6 +5,7 @@ export interface ProductWithImages {
     gender: string;
     price: number;
     sizes: string;
+    colors:string;
     slug: string;
     stock: number;
     tags: string;

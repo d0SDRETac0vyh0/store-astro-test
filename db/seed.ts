@@ -38,6 +38,7 @@ export default async function seed() {
       gender: p.gender,
       price: p.price,
       sizes: p.sizes.join(','),
+      colors: p.colors.join(','), 
       slug: p.slug,
       stock: p.stock,
       tags: p.tags.join(','),

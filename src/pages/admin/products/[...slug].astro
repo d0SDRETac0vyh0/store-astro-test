@@ -1,4 +1,5 @@
 ---
+// src/pages/admin/products/[...slug].astro
 import ProductImage from '@/components/products/ProductImage.astro';
 import ProductSlideshow from '@/components/products/ProductSlideshow.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
@@ -167,6 +168,24 @@ const { product, images } = data;
           }
         </div>
       </div>
+           <!-- Colores -->
+<div class="mb-4">
+  <label for="colors" class="block text-white">Colores</label>
+  <div class="flex text-white">
+    {
+      ['red', 'blue', 'black', 'white', 'green', 'yellow', 'pink', 'purple', 'gray', 'orange'].map((color) => (
+      <button
+          type="button"
+          class="btn-color"
+          onclick="this.classList.toggle('active')"
+          class:list={
+            product.colors.split(',').includes(color) ? 'active' : ''
+          }
+        >{color}</button>
+      ))
+    }
+  </div>
+</div>
     </div>
 
     <!-- Imagenes -->
@@ -267,6 +286,7 @@ const { product, images } = data;
     .active {
       @apply bg-blue-500 text-white;
     }
+
   </style>
 </MainLayout>
 
@@ -277,6 +297,7 @@ const { product, images } = data;
   document.addEventListener('astro:page-load', () => {
     const form = document.querySelector('form') as HTMLFormElement;
     const sizeButtons = document.querySelectorAll('.btn-size');
+    const colorButtons = document.querySelectorAll('.btn-color');
     const btnsDeleteImage = document.querySelectorAll('.btn-delete-image');
     const lblSelectedFiles = document.querySelector(
       '#lbl-selected-files'
@@ -291,27 +312,37 @@ const { product, images } = data;
     }
 
     form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+        e.preventDefault();
 
-      const selectedSizes = Array.from(sizeButtons)
-        .filter((btn) => btn.classList.contains('active'))
-        .map((btn) => btn.textContent?.trim())
-        .join(',');
+        // Obtén las tallas seleccionadas
+        const selectedSizes = Array.from(sizeButtons)
+          .filter((btn) => btn.classList.contains('active'))
+          .map((btn) => btn.textContent?.trim())
+          .join(',');
 
-      const formData = new FormData(form);
-      formData.set('sizes', selectedSizes);
+        // Obtén los colores seleccionados
+        const selectedColors = Array.from(colorButtons)
+          .filter((btn) => btn.classList.contains('active'))
+          .map((btn) => btn.textContent?.trim())
+          .join(',');
 
-      const formValues = Object.fromEntries(formData.entries());
-      console.log(formValues);
+        // Añadir tallas y colores a FormData
+        const formData = new FormData(form);
+        formData.set('sizes', selectedSizes);
+        formData.set('colors', selectedColors);
 
-      const { data, error } = await actions.createUpdateProduct.safe(formData);
+        const formValues = Object.fromEntries(formData.entries());
+        console.log(formValues);
 
-      if (error) {
-        return alert(error.message);
-      }
+        const { data, error } = await actions.createUpdateProduct.safe(formData);
 
-      navigate(`/admin/products/${data.slug}`);
-    });
+        if (error) {
+          return alert(error.message);
+        }
+
+        navigate(`/admin/products/${data.slug}`);
+      });
+
 
     // Eliminar imagenes
 
