@@ -199,7 +199,21 @@ const { product, images } = data;
             >Guardar producto</button
           >
         </div>
-        
+          <!-- Botón para eliminar el producto -->
+          <!-- Botón para eliminar el producto -->
+          <div class="flex justify-end">
+           
+                <button
+                  type="button"
+                  class="btn-delete-product"
+                  data-id={product.id}
+                >
+                  Eliminar producto
+                </button>
+             
+           
+          </div>
+          
         <!-- File input -->
         <div class="flex items-center justify-center w-full">
           <label
@@ -286,6 +300,14 @@ const { product, images } = data;
     .active {
       @apply bg-blue-500 text-white;
     }
+    .btn-color,
+    .btn-delete-image {
+      @apply rounded border cursor-pointer border-gray-300 w-10 h-10 mr-4 hover:bg-blue-300 hover:text-white transition-all;
+    }
+
+    .active {
+      @apply bg-blue-500 text-white;
+    }
 
   </style>
 </MainLayout>
@@ -299,6 +321,34 @@ const { product, images } = data;
     const sizeButtons = document.querySelectorAll('.btn-size');
     const colorButtons = document.querySelectorAll('.btn-color');
     const btnsDeleteImage = document.querySelectorAll('.btn-delete-image');
+    const btnsDeleteProduct = document.querySelectorAll('.btn-delete-product');
+
+btnsDeleteProduct.forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    const id = btn.getAttribute('data-id');
+    if (!id) {
+      console.error('No ID found');
+      return;
+    }
+
+    try {
+      const { error } = await actions.deleteProduct.safe({ id });
+      
+      if (error) {
+        console.log(error);
+        alert('Error al eliminar el producto: ' + error.message);
+        return;
+      }
+
+      btn.closest('tr')?.remove();
+
+      window.location.href = '/admin/dashboard'; 
+    } catch (error) {
+      alert('Error al eliminar el producto: ' + error);
+    }
+  });
+});
+
     const lblSelectedFiles = document.querySelector(
       '#lbl-selected-files'
     ) as HTMLParagraphElement;

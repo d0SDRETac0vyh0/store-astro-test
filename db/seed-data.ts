@@ -1,3 +1,4 @@
+//db/seed-data.ts
 interface SeedProduct {
   description: string;
   images: string[];

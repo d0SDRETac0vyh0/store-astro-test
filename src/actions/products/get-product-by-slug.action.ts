@@ -1,3 +1,5 @@
+// src/actions/products/get-product-by-slug.action.ts
+
 import { defineAction, z } from "astro:actions";
 import { db, eq, Product, ProductImage } from "astro:db";
 

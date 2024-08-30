@@ -1,3 +1,4 @@
+// src/actions/products/delete-product-image.action.ts
 import { ImageUpload } from '@/utils/image-upload';
 import { defineAction, z } from 'astro:actions';
 import { db, eq, ProductImage } from 'astro:db';

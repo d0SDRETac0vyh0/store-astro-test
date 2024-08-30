@@ -1,3 +1,4 @@
+// src/actions/products/create-update-product.action.ts
 import { ImageUpload } from '@/utils/image-upload';
 import { defineAction, z } from 'astro:actions';
 import { db, eq, Product, ProductImage } from 'astro:db';

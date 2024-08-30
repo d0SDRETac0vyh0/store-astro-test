@@ -1,3 +1,4 @@
+// db/config.ts
 import { column, defineDb, defineTable } from 'astro:db';
 
 const User = defineTable({
