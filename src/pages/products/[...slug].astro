@@ -1,6 +1,7 @@
 ---
 // src/pages/products/[...slug].astro
 
+import PayButton from "@/components/PayButton.tsx";
 import ProductSlideshow from "@/components/products/ProductSlideshow.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import {actions} from 'astro:actions';  
@@ -71,10 +72,10 @@ const image = images[0].image.startsWith('http')
       data-item-custom2-name="Colores disponibles"
       data-item-custom2-value=""
       data-item-custom2-options={product.colors.split(',').join('|')}
-
   >   
       Añadir al carrito
   </button>
+  <PayButton amount={product.price} client:load />
 
       <h3 class="mt-10 text-pink-300">Descripción</h3>
       <p class="text-pink-300">{product.description}</p>

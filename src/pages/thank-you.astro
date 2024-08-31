@@ -1,0 +1,28 @@
+---
+// src/pages/thank-you.astro
+
+const params = Astro.url.searchParams;
+const order = params.get('order');
+const amount = params.get('amount');
+import PaymentSuccess from "../components/PaymentSuccess.jsx";
+import MainLayout from "@/layouts/MainLayout.astro";
+
+const success = params.get('success');
+---
+
+<MainLayout title="Gracias por tu compra">
+  <main>
+
+    <PaymentSuccess client:load />
+
+  </main>
+</MainLayout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 2rem;
+    max-width: 600px;
+    text-align: center;
+  }
+</style>
