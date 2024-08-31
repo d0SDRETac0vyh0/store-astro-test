@@ -64,7 +64,7 @@ const PaymentSuccess = () => {
           <p><strong>Número de Tarjeta:</strong> **** **** **** {details.card_detail.card_number}</p>
         </div>
       ) : (
-        <p>No se encontraron detalles de la transacción.</p>
+        <p>No se encontraron detalles de la transacción. 7w7</p>
       )}
       <div>
         <button className="bg-fuchsia-600 text-white p-3 mt-4 rounded-xl hover:bg-fuchsia-700 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:ring-offset-2"
