@@ -13,7 +13,6 @@ const pageParam = Number(searchParams.get('page') ?? 1);
 const { data, error } = await actions.getProductsByPage.safe({
   page: pageParam,
   limit:6,
-  gender:'women',
 });
 
 if (error) {
