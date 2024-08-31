@@ -44,7 +44,7 @@ const PaymentSuccess = () => {
   }, []);
 
   if (loading) {
-    return <p>Cargando detalles...</p>;
+    return <p className='text-fuchsia-500' >Cargando detalles...</p>;
   }
 
   if (error) {
