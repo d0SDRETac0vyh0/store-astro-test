@@ -9,25 +9,26 @@ export const getProductsByPage = defineAction({
     page: z.number().optional().default(1),
     limit: z.number().optional().default(6),
     gender: z.string().optional(),
+    type: z.string().optional(),  // Agregado filtro por tipo
     categorys: z.string().optional(),  // Añadido el filtro de categoría
   }),
 
-  handler: async ({ page, limit, gender, categorys }) => {
+  handler: async ({ page, limit, type, categorys }) => {
     page = page <= 0 ? 1 : page;
 
     let totalRecords;
-    if (gender && categorys) {
+    if (type && categorys) {
       totalRecords = await db
         .select({ count: count() })
         .from(Product)
         .where(
-          sql`${eq(Product.gender, gender)} AND ${eq(Product.categorys, categorys)}`
+          sql`${eq(Product.type, type)} AND ${eq(Product.categorys, categorys)}`
         );
-    } else if (gender) {
+    } else if (type) {
       totalRecords = await db
         .select({ count: count() })
         .from(Product)
-        .where(eq(Product.gender, gender));
+        .where(eq(Product.type, type));
     } else if (categorys) {
       totalRecords = await db
         .select({ count: count() })
@@ -47,24 +48,24 @@ export const getProductsByPage = defineAction({
     }
 
     let productsQuery;
-    if (gender && categorys) {
+    if (type && categorys) {
       productsQuery = sql`
         select a.*,
         ( select GROUP_CONCAT(image, ',') from 
           ( select * from ${ProductImage} where productId = a.id limit 2 )
         ) as images
         from ${Product} a
-        where a.gender = ${gender} and a.categorys = ${categorys} /* Filtro por género y categoría */
+        where a.type = ${type} and a.categorys = ${categorys} /* Filtro por tipo y categoría */
         LIMIT ${limit} OFFSET ${(page - 1) * limit};
       `;
-    } else if (gender) {
+    } else if (type) {
       productsQuery = sql`
         select a.*,
         ( select GROUP_CONCAT(image, ',') from 
           ( select * from ${ProductImage} where productId = a.id limit 2 )
         ) as images
         from ${Product} a
-        where a.gender = ${gender}  /* Filtro por género */
+        where a.type = ${type}  /* Filtro por tipo */
         LIMIT ${limit} OFFSET ${(page - 1) * limit};
       `;
     } else if (categorys) {
