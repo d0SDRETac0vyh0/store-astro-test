@@ -13,4 +13,5 @@ export interface ProductWithImages {
     type: string;
     user: string;
     images: string;
+    category:string;
   }

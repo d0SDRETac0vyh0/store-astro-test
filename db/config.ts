@@ -33,7 +33,7 @@ const Product = defineTable({
     tags: column.text(),
     title: column.text(),
     type: column.text(),
-
+    categorys: column.text(),  // Nueva columna para la categoría
     user: column.text({ references: () => User.columns.id }),
   },
 });

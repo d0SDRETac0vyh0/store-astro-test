@@ -136,7 +136,10 @@ const { product, images } = data;
           <select class="w-full p-2 border border-gray-300 rounded" name="type">
             <option value="">[ Seleccione ]</option>
             {
-              ['shirts', 'shirt', 'pants', 'hats', 'hoodies'].map((type) => (
+              [
+                'shirts', 'pants', 'hoodies', 'hats', 'beatles', 'chaquetas', 'vestidos', 'pantys', 
+                'bufandas', 'sweater', 'top', 'poleras', 'blusas', 'shorts', 'faldas', 'calzas', 'pantalones', 'jeans', 'enteritos'
+              ].map((type) => (
                 <option
                   value={type}
                   class="capitalize"
@@ -148,6 +151,7 @@ const { product, images } = data;
             }
           </select>
         </div>
+        
       </div>
 
       <!-- Tallas -->
@@ -168,6 +172,24 @@ const { product, images } = data;
           }
         </div>
       </div>
+            <!-- Categoria -->
+            <div class="mb-4">
+              <label for="categorys" class="block text-white">Categoria</label>
+              <div class="flex text-white">
+                {
+                  ['Otoño/Invierno' , 'Primavera/Verano'].map((category) => (
+                  <button
+                      type="button"
+                      class="btn-category"
+                      onclick="this.classList.toggle('active')"
+                      class:list={
+                        product.categorys.split(',').includes(category) ? 'active' : ''
+                      }
+                    >{category}</button>
+                  ))
+                }
+              </div>
+            </div>
            <!-- Colores -->
 <div class="mb-4">
   <label for="colors" class="block text-white">Colores</label>
@@ -202,7 +224,6 @@ const { product, images } = data;
           <!-- Botón para eliminar el producto -->
           <!-- Botón para eliminar el producto -->
           <div class="flex justify-end">
-           
                 <button
                   type="button"
                   class="btn-delete-product bg-red-500 mb-5 p-2 rounded text-white"
@@ -210,8 +231,6 @@ const { product, images } = data;
                 >
                   Eliminar producto
                 </button>
-             
-           
           </div>
           
         <!-- File input -->
@@ -308,6 +327,14 @@ const { product, images } = data;
     .active {
       @apply bg-blue-500 text-white;
     }
+    .btn-category,
+    .btn-delete-image {
+      @apply rounded border cursor-pointer border-gray-300 w-auto h-10 mr-4 hover:bg-blue-300 hover:text-white transition-all;
+    }
+
+    .active {
+      @apply bg-blue-500 text-white;
+    }
 
   </style>
 </MainLayout>
@@ -320,6 +347,7 @@ const { product, images } = data;
     const form = document.querySelector('form') as HTMLFormElement;
     const sizeButtons = document.querySelectorAll('.btn-size');
     const colorButtons = document.querySelectorAll('.btn-color');
+    const categoryButtons = document.querySelectorAll('.btn-category');
     const btnsDeleteImage = document.querySelectorAll('.btn-delete-image');
     const btnsDeleteProduct = document.querySelectorAll('.btn-delete-product');
 
@@ -363,6 +391,10 @@ btnsDeleteProduct.forEach((btn) => {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const selectedCategorys = Array.from(categoryButtons)
+          .filter((btn) => btn.classList.contains('active'))
+          .map((btn) => btn.textContent?.trim())
+          .join(',');
 
         // Obtén las tallas seleccionadas
         const selectedSizes = Array.from(sizeButtons)
@@ -380,6 +412,7 @@ btnsDeleteProduct.forEach((btn) => {
         const formData = new FormData(form);
         formData.set('sizes', selectedSizes);
         formData.set('colors', selectedColors);
+        formData.set('categorys', selectedCategorys);
 
         const formValues = Object.fromEntries(formData.entries());
         console.log(formValues);

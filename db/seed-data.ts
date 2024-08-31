@@ -11,11 +11,15 @@ interface SeedProduct {
   title: string;
   type: ValidTypes;
   gender: 'men' | 'women' | 'kid' | 'unisex';
+  categorys: ValidCategorys[];  // Nueva propiedad para la categoría como array
 }
 
 type ValidSizes = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
-type ValidTypes = 'shirts' | 'pants' | 'hoodies' | 'hats';
+type ValidTypes = 'shirts' | 'pants' | 'hoodies' | 'hats' | 'beatles' | 'chaquetas' | 'vestidos' | 'pantys' | 
+                'bufandas' | 'sweater' | 'top' | 'poleras' | 'blusas' | 'shorts' | 'faldas' | 'calzas' | 
+                'pantalones' | 'jeans' | 'enteritos';
 type ValidColors = 'red' | 'blue' | 'black' | 'white' | 'green' | 'yellow' | 'pink' | 'purple' | 'gray' | 'orange'; // Colores válidos
+type ValidCategorys = 'Otoño/Invierno' | 'Primavera/Verano';
 
 export const seedProducts: SeedProduct[] = [
   {
@@ -29,9 +33,11 @@ export const seedProducts: SeedProduct[] = [
     slug: 'mens_chill_crew_neck_sweatshirt',
     type: 'shirts',
     tags: ['sweatshirt'],
-    title: ' beatles básico de invierno',
+    title: ' Chaqueta básico de invierno',
     gender: 'women',
+    categorys: ['Primavera/Verano'],  // Categoría del producto como array de categorías válidas
   },
+
   {
     description:
       "El iPhone 14 Pro te permite captar detalles increíbles gracias a su cámara gran angular de 48MP. Además, trae la Dynamic Island y una pantalla siempre activa, para que puedas interactuar con tu iPhone de una forma completamente nueva. Y viene con Detección de Choques1, una funcionalidad de seguridad que pide ayuda cuando no estás en condiciones de hacerlo.",
@@ -45,6 +51,7 @@ export const seedProducts: SeedProduct[] = [
     tags: ['jacket'],
     title: "Apple iPhone 14 Pro",
     gender: 'men',
+    categorys: ['Primavera/Verano'],  // Categoría del producto como array de categorías válidas
   },
 
   // {

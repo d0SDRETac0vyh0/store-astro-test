@@ -29,6 +29,7 @@ export const createUpdateProduct = defineAction({
     tags: z.string(),
     title: z.string(),
     type: z.string(),
+    categorys:z.string(),
 
     imageFiles: z
       .array(

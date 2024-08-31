@@ -15,6 +15,7 @@ const newProduct = {
     tags: 'shirt,men,nuevo',
     title: 'Nuevo Producto',
     type: 'shirts',
+    categorys:'Otoño/Invierno',
   };
 
 export const getProductsBySlug=defineAction({

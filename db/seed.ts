@@ -1,3 +1,4 @@
+//db/seed.ts
 import { Role, User, db, Product, ProductImage } from 'astro:db';
 import { v4 as UUID } from 'uuid';
 import bcrypt from 'bcryptjs';
@@ -44,6 +45,7 @@ export default async function seed() {
       tags: p.tags.join(','),
       title: p.title,
       type: p.type,
+      categorys: p.categorys.join(','),
       user: feniceAdmin.id,
     };
 
