@@ -35,7 +35,7 @@ export const seedProducts: SeedProduct[] = [
     tags: ['sweatshirt'],
     title: ' Chaqueta básico de invierno',
     gender: 'women',
-    categorys: ['Primavera/Verano'],  // Categoría del producto como array de categorías válidas
+    categorys: ['Otoño/Invierno'],  // Categoría del producto como array de categorías válidas
   },
 
   {
@@ -52,6 +52,21 @@ export const seedProducts: SeedProduct[] = [
     title: "Apple iPhone 14 Pro",
     gender: 'men',
     categorys: ['Primavera/Verano'],  // Categoría del producto como array de categorías válidas
+  },
+  {
+    description:
+      "El iPhone 14 Pro te permite captar detalles increíbles gracias a su cámara gran angular de 48MP. Además, trae la Dynamic Island y una pantalla siempre activa, para que puedas interactuar con tu iPhone de una forma completamente nueva. Y viene con Detección de Choques1, una funcionalidad de seguridad que pide ayuda cuando no estás en condiciones de hacerlo.",
+    images: ['falda1.jpg', 'Apple-iPhone-14-Pro-60d92f1.jpg'],
+    stock: 5,
+    price: 9900,
+    sizes: ['S', 'M', 'L'],
+    colors: ['black'],  // Usando los colores válidos
+    slug: 'falda_mujer',
+    type: 'faldas',
+    tags: ['jacket'],
+    title: "Falda short cuerina",
+    gender: 'women',
+    categorys: ['Otoño/Invierno'],  // Categoría del producto como array de categorías válidas
   },
 
   // {

@@ -4,7 +4,7 @@
 const params = Astro.url.searchParams;
 const order = params.get('order');
 const amount = params.get('amount');
-import PaymentSuccess from "../components/PaymentSuccess.jsx";
+import PaymentSuccess from "@/components/webpay/PaymentSuccess";
 import MainLayout from "@/layouts/MainLayout.astro";
 
 const success = params.get('success');
