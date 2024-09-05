@@ -21,15 +21,17 @@ const image = images[0].image.startsWith('http')
 ---
 
 <MainLayout
+
   title={product.title}
   description={product.description}
   image={image}
     >
     <!-- image={image} -->
   <!-- <h1 class="text-pink-300">{product.title}</h1> -->
+  <main class="container m-auto max-w-4xl px-5 mt-8">
 
-  <div class="grid grid-cols-1 md:grid-cols-3 w-full gap-4">
-    <ProductSlideshow images={images.map((i) => i.image)} />
+  <div class="grid grid-cols-1 md:grid-cols-3 w-full gap-4 ">
+    <ProductSlideshow images={images.map((i) => i.image)}/>
 
     <section>
       <h2 class="text-2xl font-bold text-[#231f20]">{product.title}</h2>
@@ -52,6 +54,7 @@ const image = images[0].image.startsWith('http')
             .map((size) => <li data-size={size}>{size}  </li>)
         }
       </ul>
+    
 
       <!-- <h3 class="mt-5 te xt-pink-300">Cantidad disponible</h3>
       <div>
@@ -83,6 +86,7 @@ const image = images[0].image.startsWith('http')
   </div>
 
   <input type="hidden" id="product-id" value={product.id} />
+</main>
 </MainLayout>
 
 <script>
@@ -146,6 +150,7 @@ const image = images[0].image.startsWith('http')
 </script>
 
 <style>
+  
   h3 {
     @apply font-bold;
   }
