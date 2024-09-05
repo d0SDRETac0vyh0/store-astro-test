@@ -1,50 +1,48 @@
 ---
 // src/pages/admin/products/[...slug].astro
-import ProductImage from '@/components/products/ProductImage.astro';
-import ProductSlideshow from '@/components/products/ProductSlideshow.astro';
-import MainLayout from '@/layouts/MainLayout.astro';
-import { actions } from 'astro:actions';
+import ProductImage from "@/components/products/ProductImage.astro";
+import ProductSlideshow from "@/components/products/ProductSlideshow.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+import { actions } from "astro:actions";
 
 const { slug } = Astro.params;
 
-const { data, error } = await actions.getProductsBySlug.safe(slug ?? '');
+const { data, error } = await actions.getProductsBySlug.safe(slug ?? "");
 
 if (error) {
-  return Astro.redirect('/404');
+  return Astro.redirect("/404");
 }
 
 const { product, images } = data;
 ---
 
 <MainLayout title="Mantenimiento de producto">
-  <h1 class="text-white">{product.title}</h1>
+  <h1 class="text-[#231f20]">{product.title}</h1>
   <a href="javascript:history.back()" class="text-blue-500">← Volver</a>
 
   <form class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-    <input type="hidden" name="id" value={product.id}>
+    <input type="hidden" name="id" value={product.id} />
 
     <!-- Datos generales -->
     <div class="mt-2">
-      <h2 class="text-lg font-semibold text-white">Datos generales</h2>
+      <h2 class="text-lg font-semibold text-[#231f20]">Datos generales</h2>
 
       <!-- Titulo -->
       <div class="mb-4">
-        <label for="title" class="block text-white">Título</label>
+        <label for="title" class="block text-[#231f20]">Título</label>
         <input
           type="text"
           id="title"
           name="title"
           value={product.title}
           class="w-full p-2 border border-gray-300 rounded"
-          maxlength="50"  
-
+          maxlength="50"
         />
       </div>
 
       <!-- Slug -->
       <div class="mb-4">
-        <label for="slug" class="block text-white">Slug</label>
+        <label for="slug" class="block text-[#231f20]">Slug</label>
         <input
           type="text"
           id="slug"
@@ -56,7 +54,8 @@ const { product, images } = data;
 
       <!-- Descripción -->
       <div class="mb-4">
-        <label for="description" class="block text-white">Descripción</label>
+        <label for="description" class="block text-[#231f20]">Descripción</label
+        >
         <textarea
           id="description"
           name="description"
@@ -68,7 +67,7 @@ const { product, images } = data;
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <!-- Precio -->
         <div class="mb-4">
-          <label for="price" class="block text-white">Precio</label>
+          <label for="price" class="block text-[#231f20]">Precio</label>
           <input
             type="number"
             id="price"
@@ -80,20 +79,20 @@ const { product, images } = data;
 
         <!-- Inventario -->
         <div class="mb-4">
-          <label for="stock" class="block text-white">Inventario</label>
+          <label for="stock" class="block text-[#231f20]">Inventario</label>
           <input
             type="number"
             id="stock"
             name="stock"
             value={product.stock}
-            class="w-full p-2 border border-gray-300 rounded" 
+            class="w-full p-2 border border-gray-300 rounded"
           />
         </div>
       </div>
 
       <!-- Labels -->
       <div class="mb-4">
-        <label for="tags" class="block text-white"
+        <label for="tags" class="block text-[#231f20]"
           >Etiquetas <small class="text-gray-500">(Separado por comas)</small
           ></label
         >
@@ -105,19 +104,18 @@ const { product, images } = data;
           class="w-full p-2 border border-gray-300 rounded"
         />
       </div>
-      
-      
+
       <div class="grid grid-cols-2 gap-4">
         <!-- Gender -->
         <div class="mb-4">
-          <label for="gender" class="block text-white">Sexo</label>
+          <label for="gender" class="block text-[#231f20]">Sexo</label>
           <select
             class="w-full p-2 border border-gray-300 rounded"
             name="gender"
           >
             <option value="">[ Seleccione ]</option>
             {
-              ['men', 'women', 'unisex', 'kid'].map((gender) => (
+              ["men", "women", "unisex", "kid"].map((gender) => (
                 <option
                   value={gender}
                   class="capitalize"
@@ -132,13 +130,30 @@ const { product, images } = data;
 
         <!-- Type -->
         <div class="mb-4">
-          <label for="tags" class="block text-white">Tipo</label>
+          <label for="tags" class="block text-[#231f20]">Tipo</label>
           <select class="w-full p-2 border border-gray-300 rounded" name="type">
             <option value="">[ Seleccione ]</option>
             {
               [
-                'shirts', 'pants', 'hoodies', 'hats', 'beatles', 'chaquetas', 'vestidos', 'pantys', 
-                'bufandas', 'sweater', 'top', 'poleras', 'blusas', 'shorts', 'faldas', 'calzas', 'pantalones', 'jeans', 'enteritos'
+                "shirts",
+                "pants",
+                "hoodies",
+                "hats",
+                "beatles",
+                "chaquetas",
+                "vestidos",
+                "pantys",
+                "bufandas",
+                "sweater",
+                "top",
+                "poleras",
+                "blusas",
+                "shorts",
+                "faldas",
+                "calzas",
+                "pantalones",
+                "jeans",
+                "enteritos",
               ].map((type) => (
                 <option
                   value={type}
@@ -151,88 +166,105 @@ const { product, images } = data;
             }
           </select>
         </div>
-        
       </div>
 
       <!-- Tallas -->
       <div class="mb-4">
-        <label for="sizes" class="block text-white">Tallas</label>
-        <div class="flex text-white">
+        <label for="sizes" class="block text-[#231f20]">Tallas</label>
+        <div class="flex text-[#6d686e]">
           {
-            ['XS', 'S', 'M', 'L', 'XL', 'XXL'].map((size) => (
-            <button
+            ["XS", "S", "M", "L", "XL", "XXL"].map((size) => (
+              <button
                 type="button"
                 class="btn-size"
                 onclick="this.classList.toggle('active')"
                 class:list={
-                  product.sizes.split(',').includes(size) ? 'active' : ''
+                  product.sizes.split(",").includes(size) ? "active" : ""
                 }
-              >{size}</button>
+              >
+                {size}
+              </button>
             ))
           }
         </div>
       </div>
-            <!-- Categoria -->
-            <div class="mb-4">
-              <label for="categorys" class="block text-white">Categoria</label>
-              <div class="flex text-white">
-                {
-                  ['Otoño/Invierno' , 'Primavera/Verano'].map((category) => (
-                  <button
-                      type="button"
-                      class="btn-category"
-                      onclick="this.classList.toggle('active')"
-                      class:list={
-                        product.categorys.split(',').includes(category) ? 'active' : ''
-                      }
-                    >{category}</button>
-                  ))
+      <!-- Categoria -->
+      <div class="mb-4">
+        <label for="categorys" class="block text-[#231f20]">Categoria</label>
+        <div class="flex text-[#6d686e]">
+          {
+            ["Otoño/Invierno", "Primavera/Verano"].map((category) => (
+              <button
+                type="button"
+                class="btn-category"
+                onclick="this.classList.toggle('active')"
+                class:list={
+                  product.categorys.split(",").includes(category)
+                    ? "active"
+                    : ""
                 }
-              </div>
-            </div>
-           <!-- Colores -->
-<div class="mb-4">
-  <label for="colors" class="block text-white">Colores</label>
-  <div class="flex text-white">
-    {
-      ['red', 'blue', 'black', 'white', 'green', 'yellow', 'pink', 'purple', 'gray', 'orange'].map((color) => (
-      <button
-          type="button"
-          class="btn-color"
-          onclick="this.classList.toggle('active')"
-          class:list={
-            product.colors.split(',').includes(color) ? 'active' : ''
+              >
+                {category}
+              </button>
+            ))
           }
-        >{color}</button>
-      ))
-    }
-  </div>
-</div>
+        </div>
+      </div>
+      <!-- Colores -->
+      <div class="mb-4">
+        <label for="colors" class="block text-[#231f20]">Colores</label>
+        <div class="flex text-[#6d686e]">
+          {
+            [
+              "red",
+              "blue",
+              "black",
+              "white",
+              "green",
+              "yellow",
+              "pink",
+              "purple",
+              "gray",
+              "orange",
+            ].map((color) => (
+              <button
+                type="button"
+                class="btn-color"
+                onclick="this.classList.toggle('active')"
+                class:list={
+                  product.colors.split(",").includes(color) ? "active" : ""
+                }
+              >
+                {color}
+              </button>
+            ))
+          }
+        </div>
+      </div>
     </div>
 
     <!-- Imagenes -->
     <div>
       <!-- File upload -->
       <div class="mt-4 text-white">
-        
-         <!-- Guardar  -->
+        <!-- Guardar  -->
         <div class="flex justify-end">
           <button class="bg-blue-500 mb-5 p-2 rounded text-white"
             >Guardar producto</button
           >
         </div>
-          <!-- Botón para eliminar el producto -->
-          <!-- Botón para eliminar el producto -->
-          <div class="flex justify-end">
-                <button
-                  type="button"
-                  class="btn-delete-product bg-red-500 mb-5 p-2 rounded text-white"
-                  data-id={product.id}
-                >
-                  Eliminar producto
-                </button>
-          </div>
-          
+        <!-- Botón para eliminar el producto -->
+        <!-- Botón para eliminar el producto -->
+        <div class="flex justify-end">
+          <button
+            type="button"
+            class="btn-delete-product bg-red-500 mb-5 p-2 rounded text-white"
+            data-id={product.id}
+          >
+            Eliminar producto
+          </button>
+        </div>
+
         <!-- File input -->
         <div class="flex items-center justify-center w-full">
           <label
@@ -280,7 +312,7 @@ const { product, images } = data;
 
         <table class="w-full border">
           <thead>
-            <tr>
+            <tr class="text-[#231f20]">
               <th>Imagen</th>
               <th>Eliminar</th>
             </tr>
@@ -297,7 +329,11 @@ const { product, images } = data;
                     />
                   </td>
                   <td class="text-center">
-                    <button type="button" data-id={id} class="btn-delete-image">
+                    <button
+                      type="button"
+                      data-id={id}
+                      class="btn-delete-image text-[#231f20]"
+                    >
                       X
                     </button>
                   </td>
@@ -335,103 +371,101 @@ const { product, images } = data;
     .active {
       @apply bg-blue-500 text-white;
     }
-
   </style>
 </MainLayout>
 
 <script>
-  import { actions } from 'astro:actions';
-  import { navigate } from 'astro:transitions/client';
+  import { actions } from "astro:actions";
+  import { navigate } from "astro:transitions/client";
 
-  document.addEventListener('astro:page-load', () => {
-    const form = document.querySelector('form') as HTMLFormElement;
-    const sizeButtons = document.querySelectorAll('.btn-size');
-    const colorButtons = document.querySelectorAll('.btn-color');
-    const categoryButtons = document.querySelectorAll('.btn-category');
-    const btnsDeleteImage = document.querySelectorAll('.btn-delete-image');
-    const btnsDeleteProduct = document.querySelectorAll('.btn-delete-product');
+  document.addEventListener("astro:page-load", () => {
+    const form = document.querySelector("form") as HTMLFormElement;
+    const sizeButtons = document.querySelectorAll(".btn-size");
+    const colorButtons = document.querySelectorAll(".btn-color");
+    const categoryButtons = document.querySelectorAll(".btn-category");
+    const btnsDeleteImage = document.querySelectorAll(".btn-delete-image");
+    const btnsDeleteProduct = document.querySelectorAll(".btn-delete-product");
 
-btnsDeleteProduct.forEach((btn) => {
-  btn.addEventListener('click', async () => {
-    const id = btn.getAttribute('data-id');
-    if (!id) {
-      console.error('No ID found');
-      return;
-    }
+    btnsDeleteProduct.forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const id = btn.getAttribute("data-id");
+        if (!id) {
+          console.error("No ID found");
+          return;
+        }
 
-    try {
-      const { error } = await actions.deleteProduct.safe({ id });
-      
-      if (error) {
-        console.log(error);
-        alert('Error al eliminar el producto: ' + error.message);
-        return;
-      }
+        try {
+          const { error } = await actions.deleteProduct.safe({ id });
 
-      btn.closest('tr')?.remove();
+          if (error) {
+            console.log(error);
+            alert("Error al eliminar el producto: " + error.message);
+            return;
+          }
 
-      window.location.href = '/admin/dashboard'; 
-    } catch (error) {
-      alert('Error al eliminar el producto: ' + error);
-    }
-  });
-});
+          btn.closest("tr")?.remove();
+
+          window.location.href = "/admin/dashboard";
+        } catch (error) {
+          alert("Error al eliminar el producto: " + error);
+        }
+      });
+    });
 
     const lblSelectedFiles = document.querySelector(
-      '#lbl-selected-files'
+      "#lbl-selected-files",
     ) as HTMLParagraphElement;
-    const dropZone = document.querySelector('#drop-zone') as HTMLLabelElement;
+    const dropZone = document.querySelector("#drop-zone") as HTMLLabelElement;
     const fileInput = document.querySelector(
-      '#file-upload'
+      "#file-upload",
     ) as HTMLInputElement;
 
     if (!form) {
       return;
     }
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const selectedCategorys = Array.from(categoryButtons)
-          .filter((btn) => btn.classList.contains('active'))
-          .map((btn) => btn.textContent?.trim())
-          .join(',');
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const selectedCategorys = Array.from(categoryButtons)
+        .filter((btn) => btn.classList.contains("active"))
+        .map((btn) => btn.textContent?.trim())
+        .join(",");
 
-        // Obtén las tallas seleccionadas
-        const selectedSizes = Array.from(sizeButtons)
-          .filter((btn) => btn.classList.contains('active'))
-          .map((btn) => btn.textContent?.trim())
-          .join(',');
+      // Obtén las tallas seleccionadas
+      const selectedSizes = Array.from(sizeButtons)
+        .filter((btn) => btn.classList.contains("active"))
+        .map((btn) => btn.textContent?.trim())
+        .join(",");
 
-        // Obtén los colores seleccionados
-        const selectedColors = Array.from(colorButtons)
-          .filter((btn) => btn.classList.contains('active'))
-          .map((btn) => btn.textContent?.trim())
-          .join(',');
+      // Obtén los colores seleccionados
+      const selectedColors = Array.from(colorButtons)
+        .filter((btn) => btn.classList.contains("active"))
+        .map((btn) => btn.textContent?.trim())
+        .join(",");
 
-        // Añadir tallas y colores a FormData
-        const formData = new FormData(form);
-        formData.set('sizes', selectedSizes);
-        formData.set('colors', selectedColors);
-        formData.set('categorys', selectedCategorys);
+      // Añadir tallas y colores a FormData
+      const formData = new FormData(form);
+      formData.set("sizes", selectedSizes);
+      formData.set("colors", selectedColors);
+      formData.set("categorys", selectedCategorys);
 
-        const formValues = Object.fromEntries(formData.entries());
-        console.log(formValues);
+      const formValues = Object.fromEntries(formData.entries());
+      console.log(formValues);
 
-        const { data, error } = await actions.createUpdateProduct.safe(formData);
+      const { data, error } = await actions.createUpdateProduct.safe(formData);
 
-        if (error) {
-          return alert(error.message);
-        }
+      if (error) {
+        return alert(error.message);
+      }
 
-        navigate(`/admin/products/${data.slug}`);
-      });
-
+      navigate(`/admin/products/${data.slug}`);
+    });
 
     // Eliminar imagenes
 
     btnsDeleteImage.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
-        const id = btn.getAttribute('data-id');
+      btn.addEventListener("click", async (e) => {
+        const id = btn.getAttribute("data-id");
         if (!id) return;
 
         const { error } = await actions.deleteProductImage.safe(id);
@@ -443,7 +477,6 @@ btnsDeleteProduct.forEach((btn) => {
 
         const trId = `#${id}`;
         document.querySelector(trId)?.remove();
-
       });
     });
 
@@ -455,11 +488,11 @@ btnsDeleteProduct.forEach((btn) => {
     };
 
     const highlight = (e: DragEvent) => {
-      dropZone.classList.add('border-blue-500', 'bg-blue-50');
+      dropZone.classList.add("border-blue-500", "bg-blue-50");
     };
 
     const unHighlight = (e: DragEvent) => {
-      dropZone.classList.remove('border-blue-500', 'bg-blue-50');
+      dropZone.classList.remove("border-blue-500", "bg-blue-50");
     };
 
     const createFileList = (files: File[]): FileList => {
@@ -470,7 +503,7 @@ btnsDeleteProduct.forEach((btn) => {
 
     const handleFiles = (files: FileList) => {
       const validFiles = Array.from(files).filter((file) =>
-        file.type.startsWith('image/')
+        file.type.startsWith("image/"),
       );
 
       if (fileInput && validFiles.length > 0) {
@@ -480,23 +513,23 @@ btnsDeleteProduct.forEach((btn) => {
       lblSelectedFiles.innerHTML = `<strong>${validFiles.length} archivos seleccionados</strong>`;
     };
 
-    (['dragenter', 'dragover', 'dragleave', 'drop'] as const).forEach(
+    (["dragenter", "dragover", "dragleave", "drop"] as const).forEach(
       (eventName) => {
         dropZone.addEventListener(eventName, preventDefaults);
         document.body.addEventListener(eventName, preventDefaults);
-      }
+      },
     );
 
-    (['dragenter', 'dragover'] as const).forEach((eventName) => {
+    (["dragenter", "dragover"] as const).forEach((eventName) => {
       dropZone.addEventListener(eventName, highlight);
     });
 
-    (['dragleave', 'drop'] as const).forEach((eventName) => {
+    (["dragleave", "drop"] as const).forEach((eventName) => {
       dropZone.addEventListener(eventName, unHighlight);
     });
 
     // Sólo imágenes
-    dropZone.addEventListener('drop', (e) => {
+    dropZone.addEventListener("drop", (e) => {
       const files = e.dataTransfer?.files;
 
       if (files) {

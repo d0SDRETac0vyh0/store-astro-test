@@ -25,46 +25,46 @@ export const seedProducts: SeedProduct[] = [
   {
     description:
       'Introducing the Tesla Chill Collection. The Men’s Chill Crew Neck Sweatshirt has a premium, heavyweight exterior and soft fleece interior for comfort in any season. The sweatshirt features a subtle thermoplastic polyurethane T logo on the chest and a Tesla wordmark below the back collar. Made from 60% cotton and 40% recycled polyester.',
-    images: ['img1.jpg', 'img2.jpg'],
+    images: ['Croplanillaescotecuadrado.jpg', 'Croplanillaescotecuadradocolores.jpg'],
     stock: 7,
-    price: 14990,
+    price: 9990,
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-    colors: ['red', 'blue', 'black', 'white'],  // Usando los colores válidos
+    colors: ['pink', 'blue', 'black', 'white'],  // Usando los colores válidos
     slug: 'mens_chill_crew_neck_sweatshirt',
     type: 'shirts',
     tags: ['sweatshirt'],
-    title: ' Chaqueta básico de invierno',
+    title: 'Crop lanilla escote cuadrado',
     gender: 'women',
-    categorys: ['Otoño/Invierno'],  // Categoría del producto como array de categorías válidas
+    categorys: ['Primavera/Verano'],  // Categoría del producto como array de categorías válidas
   },
 
   {
     description:
       "El iPhone 14 Pro te permite captar detalles increíbles gracias a su cámara gran angular de 48MP. Además, trae la Dynamic Island y una pantalla siempre activa, para que puedas interactuar con tu iPhone de una forma completamente nueva. Y viene con Detección de Choques1, una funcionalidad de seguridad que pide ayuda cuando no estás en condiciones de hacerlo.",
-    images: ['iPhone_14_Pro_Gold_PDP_Image_Position-1a__en-US.webp', 'Apple-iPhone-14-Pro-60d92f1.jpg'],
+    images: ['Topescotecuadradolycra.jpg', 'Topescotecuadradolycracolores.jpg'],
     stock: 5,
-    price: 1499000,
+    price: 9990,
     sizes: ['XS', 'S', 'M', 'XL', 'XXL'],
     colors: ['red', 'blue', 'black', 'white'],  // Usando los colores válidos
     slug: 'iphone_14_pro_max_chile_price',
     type: 'shirts',
     tags: ['jacket'],
     title: "Apple iPhone 14 Pro",
-    gender: 'men',
+    gender: 'women',
     categorys: ['Primavera/Verano'],  // Categoría del producto como array de categorías válidas
   },
   {
     description:
       "El iPhone 14 Pro te permite captar detalles increíbles gracias a su cámara gran angular de 48MP. Además, trae la Dynamic Island y una pantalla siempre activa, para que puedas interactuar con tu iPhone de una forma completamente nueva. Y viene con Detección de Choques1, una funcionalidad de seguridad que pide ayuda cuando no estás en condiciones de hacerlo.",
-    images: ['falda1.jpg', 'Apple-iPhone-14-Pro-60d92f1.jpg'],
+    images: ['Blazermanga.jpg', 'Blazermangacolores.jpg'],
     stock: 5,
-    price: 9900,
+    price: 19990,
     sizes: ['S', 'M', 'L'],
     colors: ['black'],  // Usando los colores válidos
     slug: 'falda_mujer',
     type: 'faldas',
     tags: ['jacket'],
-    title: "Falda short cuerina",
+    title: "Blazer manga 3/4",
     gender: 'women',
     categorys: ['Otoño/Invierno'],  // Categoría del producto como array de categorías válidas
   },

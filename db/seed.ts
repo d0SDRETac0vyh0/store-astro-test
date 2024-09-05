@@ -2,7 +2,7 @@
 import { Role, User, db, Product, ProductImage } from 'astro:db';
 import { v4 as UUID } from 'uuid';
 import bcrypt from 'bcryptjs';
-import { seedProducts } from './seed-data';
+import { seedProducts } from '../public/images/products/seed-data';
 
 // https://astro.build/db/seed
 export default async function seed() {
