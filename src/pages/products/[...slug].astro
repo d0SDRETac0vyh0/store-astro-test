@@ -32,11 +32,11 @@ const image = images[0].image.startsWith('http')
     <ProductSlideshow images={images.map((i) => i.image)} />
 
     <section>
-      <h2 class="text-2xl font-bold text-pink-300">{product.title}</h2>
-      <h2 class="font-bold text-pink-300">${product.price}</h2>
+      <h2 class="text-2xl font-bold text-[#231f20]">{product.title}</h2>
+      <h2 class="font-bold text-[#231f20]">${product.price}</h2>
 
-      <h3 class="mt-5 text-pink-300">Colores disponibles</h3>
-      <ul class="flex gap-3 text-pink-300">
+      <h3 class="mt-5 text-[#231f20]">Colores disponibles</h3>
+      <ul class="flex gap-3 text-[#231f20]">
         {
           product.colors
             .split(',')
@@ -44,8 +44,8 @@ const image = images[0].image.startsWith('http')
         }
       </ul>
 
-      <h3 class="mt-5 text-pink-300">Tallas disponibles</h3>
-      <ul class="flex gap-3 text-pink-300">
+      <h3 class="mt-5 text-[#231f20]">Tallas disponibles</h3>
+      <ul class="flex gap-3 text-[#231f20]">
         {
           product.sizes
             .split(',')
@@ -60,7 +60,7 @@ const image = images[0].image.startsWith('http')
         <button class="btn-quantity text-pink-300">+</button>
       </div> -->
 
-      <button class="mt-5 bg-fuchsia-600 text-white p-3 w-full disabled:bg-slate-500 rounded-xl snipcart-add-item"
+      <button class=" bg-[#d5d6c3] hover:bg-[#231f20] text-black hover:text-[#d5d6c3] font-bold py-2 px-4 mt-4 border transition duration-200 ease-in-out w-full rounded-xl snipcart-add-item"
       data-item-id={data.product.id}
       data-item-categories={data.product.gender}
       data-item-name={data.product.title}
@@ -77,8 +77,8 @@ const image = images[0].image.startsWith('http')
   </button>
   <PayButton amount={product.price} client:load />
 
-      <h3 class="mt-10 text-pink-300">Descripción</h3>
-      <p class="text-pink-300">{product.description}</p>
+      <h3 class="mt-10 text-[#231f20]">Descripción</h3>
+      <p class="ttext-[#231f20]">{product.description}</p>
     </section>
   </div>
 

@@ -3,6 +3,7 @@ import Navbar from "@/components/shared/Navbar.astro";
 
 import "@/assests/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
+import Footer from "@/components/shared/Footer.astro";
 
 interface Props {
   title?: string;
@@ -42,14 +43,12 @@ const {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
   </head>
-  <body>
-    
+  <body class="bg-[#f8f6f1]">
     <Navbar />
-
-    <main class="container m-auto max-w-4xl px-5 mt-20">
+    <main class="container m-auto max-w-4xl px-5 mt-8">
       <slot />
     </main>
-
+    <Footer/>
 <script>
         // @ts-ignore
   window.SnipcartSettings = {

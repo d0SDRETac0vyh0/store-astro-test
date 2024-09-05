@@ -9,7 +9,7 @@ interface Props {
 
 const { src, alt, className } = Astro.props;
 
-const currentImage = src.startsWith('http') ? src : `/images/products/${src}`;
+const currentImage = src.startsWith("http") ? src : `/images/products/${src}`;
 ---
 
-<img src={currentImage} alt={alt} class:list={[className]} />
+<img src={currentImage} alt={alt} class:list={[className]}/>

@@ -46,12 +46,19 @@ const PayButton: React.FC<PayButtonProps> = ({ amount }) => {
   };
 
   return (
-<button
-      onClick={handlePayment}
-      className="bg-fuchsia-600 text-white p-3 mt-4 rounded-xl hover:bg-fuchsia-700 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:ring-offset-2"
-    >
-      Pagar con WEBPAY
-    </button>
+    <div className="text-center">
+      <button
+        onClick={handlePayment}
+        className="bg-[#d5d6c3] hover:bg-[#231f20] text-black hover:text-[#d5d6c3] font-bold py-2 px-4 mt-4 border transition duration-200 ease-in-out w-full rounded-xl"
+      >
+        Pagar con WEBPAY
+      </button>
+      <img
+        src="/webpaylogo1.png" // Reemplaza con la ruta correcta a la imagen del logo de Webpay
+        alt="Webpay Logo"
+        className="mt-4 w-full h-auto max-w-xs mx-auto"
+      />
+    </div>
   );
 };
 

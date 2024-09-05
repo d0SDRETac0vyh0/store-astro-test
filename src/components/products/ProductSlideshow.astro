@@ -1,6 +1,6 @@
 ---
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 
 interface Props {
   images: string[];
@@ -9,14 +9,14 @@ interface Props {
 const { images } = Astro.props;
 
 const fullImages = images.map((image) => {
-  return image.startsWith('http')
+  return image.startsWith("http")
     ? image
     : `${import.meta.env.PUBLIC_URL}/images/products/${image}`;
 });
 ---
 
 <!-- Slider main container -->
-<div class="swiper mt-10 col-span-1 sm:col-span-2">
+<div class="swiper mt-2 col-span-1 sm:col-span-2 ">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
@@ -44,14 +44,14 @@ const fullImages = images.map((image) => {
 </style>
 
 <script>
-  import Swiper from 'swiper';
-  import { Pagination } from 'swiper/modules';
+  import Swiper from "swiper";
+  import { Pagination } from "swiper/modules";
 
-  document.addEventListener('astro:page-load', () => {
-    const swiper = new Swiper('.swiper', {
+  document.addEventListener("astro:page-load", () => {
+    const swiper = new Swiper(".swiper", {
       // If we need pagination
       pagination: {
-        el: '.swiper-pagination',
+        el: ".swiper-pagination",
       },
 
       modules: [Pagination],
