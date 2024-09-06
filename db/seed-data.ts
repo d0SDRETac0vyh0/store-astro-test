@@ -56,7 +56,7 @@ export const seedProducts: SeedProduct[] = [
   {
     description:
       "El iPhone 14 Pro te permite captar detalles increíbles gracias a su cámara gran angular de 48MP. Además, trae la Dynamic Island y una pantalla siempre activa, para que puedas interactuar con tu iPhone de una forma completamente nueva. Y viene con Detección de Choques1, una funcionalidad de seguridad que pide ayuda cuando no estás en condiciones de hacerlo.",
-    images: ['https://placehold.co/800x640', 'https://placehold.co/800x640'],
+    images: ['falda1.jpg', 'Apple-iPhone-14-Pro-60d92f1.jpg'],
     stock: 5,
     price: 9900,
     sizes: ['S', 'M', 'L'],

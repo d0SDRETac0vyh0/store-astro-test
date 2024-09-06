@@ -25,16 +25,15 @@ const image = images[0].image.startsWith('http')
   description={product.description}
   image={image}
     >
+    <main class="container m-auto max-w-4xl px-5 mt-8">
     <!-- image={image} -->
   <!-- <h1 class="text-pink-300">{product.title}</h1> -->
 
   <div class="grid grid-cols-1 md:grid-cols-3 w-full gap-4">
     <ProductSlideshow images={images.map((i) => i.image)} />
-
     <section>
       <h2 class="text-2xl font-bold text-[#231f20]">{product.title}</h2>
       <h2 class="font-bold text-[#231f20]">${product.price}</h2>
-
       <h3 class="mt-5 text-[#231f20]">Colores disponibles</h3>
       <ul class="flex gap-3 text-[#231f20]">
         {
@@ -43,7 +42,6 @@ const image = images[0].image.startsWith('http')
             .map((color) => <li data-color={color}>{color}  </li>)
         }
       </ul>
-
       <h3 class="mt-5 text-[#231f20]">Tallas disponibles</h3>
       <ul class="flex gap-3 text-[#231f20]">
         {
@@ -52,7 +50,6 @@ const image = images[0].image.startsWith('http')
             .map((size) => <li data-size={size}>{size}  </li>)
         }
       </ul>
-
       <!-- <h3 class="mt-5 te xt-pink-300">Cantidad disponible</h3>
       <div>
         <button class="btn-quantity text-pink-300">-</button>
@@ -83,6 +80,7 @@ const image = images[0].image.startsWith('http')
   </div>
 
   <input type="hidden" id="product-id" value={product.id} />
+</main>
 </MainLayout>
 
 <script>

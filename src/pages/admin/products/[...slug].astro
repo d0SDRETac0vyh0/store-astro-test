@@ -17,6 +17,7 @@ const { product, images } = data;
 ---
 
 <MainLayout title="Mantenimiento de producto">
+  <main class="container m-auto max-w-4xl px-5 mt-8">
   <h1 class="text-[#231f20]">{product.title}</h1>
   <a href="javascript:history.back()" class="text-blue-500">← Volver</a>
 
@@ -345,7 +346,7 @@ const { product, images } = data;
       </div>
     </div>
   </form>
-
+</main>
   <style>
     .btn-size,
     .btn-delete-image {
