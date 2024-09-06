@@ -36,22 +36,43 @@ const image = images[0].image.startsWith('http')
     <section>
       <h2 class="text-2xl font-bold text-[#231f20]">{product.title}</h2>
       <h2 class="font-bold text-[#231f20]">${product.price}</h2>
-      <h3 class="mt-5 text-[#231f20]">Colores disponibles</h3>
-      <ul class="flex gap-3 text-[#231f20]">
-        {
-          product.colors
-            .split(',')
-            .map((color) => <li data-color={color}>{color}  </li>)
-        }
-      </ul>
-      <h3 class="mt-5 text-[#231f20]">Tallas disponibles</h3>
-      <ul class="flex gap-3 text-[#231f20]">
-        {
-          product.sizes
-            .split(',')
-            .map((size) => <li data-size={size}>{size}  </li>)
-        }
-      </ul>
+        <!-- Colores disponibles -->
+        <h3 class="mt-5 text-[#231f20]">Colores disponibles</h3>
+        <div class="flex flex-wrap gap-4">
+          {
+            product.colors
+              .split(',')
+              .map((color) => (
+                <button
+                  type="button"
+                  class="btn-color w-10 h-10 rounded-full border cursor-pointer border-gray-300 hover:border-gray-500 transition-all"
+                  style={`background-color: ${color};`}
+                  onclick="this.classList.toggle('active-color')" 
+                  aria-label={color}
+                  title={color} 
+                  data-color={color}
+                >
+                  <span class="sr-only">{color}</span> <!-- Ocultamos el nombre del color para accesibilidad -->
+                </button>
+              ))
+          }
+        </div>
+        <h3 class="mt-5 text-[#231f20]">Tallas disponibles</h3>
+<ul class="flex gap-3 text-[#231f20]">
+  {
+    product.sizes
+      .split(',')
+      .map((size) => (
+        <li 
+          class="li-size"
+          data-size={size}
+        >
+          {size}
+        </li>
+      ))
+  }
+</ul>
+
       <!-- <h3 class="mt-5 te xt-pink-300">Cantidad disponible</h3>
       <div>
         <button class="btn-quantity text-pink-300">-</button>
@@ -91,14 +112,14 @@ const image = images[0].image.startsWith('http')
   import { navigate } from 'astro:transitions/client';
 
   document.addEventListener('astro:page-load', () => {
-    const sizeElements = document.querySelectorAll('li');
+    // const sizeElements = document.querySelectorAll('li');
 
-    sizeElements.forEach((liElement) => {
-      liElement.addEventListener('click', () => {
-        sizeElements.forEach((s) => s.classList.remove('selected-size'));
-        liElement.classList.add('selected-size');
-      });
-    });
+    //sizeElements.forEach((liElement) => {
+      //liElement.addEventListener('click', () => {
+        //sizeElements.forEach((s) => s.classList.remove('selected-size'));
+        //liElement.classList.add('selected-size');
+      //});
+   // });
 
     const quantityInput = document.querySelector('input') as HTMLInputElement;
     const productIdInput = document.querySelector(
@@ -146,7 +167,34 @@ const image = images[0].image.startsWith('http')
 </script>
 
 <style>
-  
+  /* Estilo para los <li> que muestran las tallas */
+.li-size {
+  @apply text-base py-2 px-4 rounded-lg border bg-[#d5d6c3] border-gray-300 text-[#6d686e] transition-all duration-200 ease-in-out;
+}
+
+/* Estado hover */
+.li-size:hover {
+  @apply bg-[#231f20] text-white border-[#231f20];
+}
+  /* Estilo para los botones de talla */
+.btn-size {
+  @apply text-base py-2 px-4 rounded-lg border border-gray-300 text-[#6d686e] transition-all duration-200 ease-in-out;
+}
+
+/* Estado hover y activo */
+.btn-size:hover {
+  @apply bg-[#231f20] text-white border-[#231f20];
+}
+
+.active {
+  @apply bg-[#231f20] text-white border-[#231f20];
+}
+
+/* Efecto de borde al seleccionar */
+.btn-size:focus,
+.btn-size.active {
+  @apply ring-2 ring-[#231f20] outline-none;
+}
   h3 {
     @apply font-bold;
   }

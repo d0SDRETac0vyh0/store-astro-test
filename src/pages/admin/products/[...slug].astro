@@ -171,13 +171,13 @@ const { product, images } = data;
 
       <!-- Tallas -->
       <div class="mb-4">
-        <label for="sizes" class="block text-[#231f20]">Tallas</label>
-        <div class="flex text-[#6d686e]">
+        <label for="sizes" class="block text-[#231f20] font-medium mb-2">Tallas</label>
+        <div class="flex flex-wrap gap-3">
           {
             ["XS", "S", "M", "L", "XL", "XXL"].map((size) => (
               <button
                 type="button"
-                class="btn-size"
+                class="btn-size py-2 px-4 rounded-lg border border-gray-300 text-[#6d686e] hover:text-white hover:bg-[#231f20] transition-all duration-200 ease-in-out"
                 onclick="this.classList.toggle('active')"
                 class:list={
                   product.sizes.split(",").includes(size) ? "active" : ""
@@ -211,37 +211,39 @@ const { product, images } = data;
           }
         </div>
       </div>
-      <!-- Colores -->
-      <div class="mb-4">
-        <label for="colors" class="block text-[#231f20]">Colores</label>
-        <div class="flex text-[#6d686e]">
-          {
-            [
-              "red",
-              "blue",
-              "black",
-              "white",
-              "green",
-              "yellow",
-              "pink",
-              "purple",
-              "gray",
-              "orange",
-            ].map((color) => (
-              <button
-                type="button"
-                class="btn-color"
-                onclick="this.classList.toggle('active')"
-                class:list={
-                  product.colors.split(",").includes(color) ? "active" : ""
-                }
-              >
-                {color}
-              </button>
-            ))
-          }
-        </div>
-      </div>
+<!-- Colores -->
+<div class="mb-4">
+  <label for="colors" class="block text-[#231f20]">Colores</label>
+  <!-- Usamos flex-wrap para que los colores se ajusten automáticamente -->
+  <div class="flex flex-wrap gap-4">
+    {
+      [
+        "red",
+        "blue",
+        "black",
+        "white",
+        "green",
+        "yellow",
+        "pink",
+        "purple",
+        "gray",
+        "orange",
+      ].map((color) => (
+        <button
+          type="button"
+          class="btn-color w-10 h-10 rounded-full border cursor-pointer border-gray-300 hover:border-gray-500 transition-all"
+          style={`background-color: ${color};`}
+          onclick="this.classList.toggle('active')"
+          class:list={product.colors.split(",").includes(color) ? "active" : ""}
+          aria-label={color}
+          title={color}
+        >
+          <span class="sr-only">{color}</span> <!-- Ocultamos el texto usando sr-only -->
+        </button>
+      ))
+    }
+  </div>
+</div>
     </div>
 
     <!-- Imagenes -->
@@ -348,30 +350,48 @@ const { product, images } = data;
   </form>
 </main>
   <style>
-    .btn-size,
-    .btn-delete-image {
-      @apply rounded border cursor-pointer border-gray-300 w-10 h-10 mr-4 hover:bg-blue-300 hover:text-white transition-all;
-    }
+/* Estilo general para botones de talla y eliminar imagen */
+.btn-size,
+.btn-delete-image {
+  @apply text-base py-2 px-4 rounded-lg border border-gray-300 text-[#6d686e] transition-all duration-200 ease-in-out;
+}
 
-    .active {
-      @apply bg-blue-500 text-white;
-    }
+/* Estado hover para mejorar la elegancia */
+.btn-size:hover {
+  @apply bg-[#231f20] text-white border-[#231f20];
+}
+
+/* Estado activo (botón seleccionado) */
+.active {
+  @apply bg-[#231f20] text-white border-[#231f20];
+}
+
+/* Opción para un borde y cambio de color al seleccionar */
+.btn-size:focus,
+.btn-size.active {
+  @apply ring-2 ring-[#231f20] outline-none;
+}
+
+/* Ajuste de animaciones para transiciones suaves */
+.btn-size {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
     .btn-color,
     .btn-delete-image {
       @apply rounded border cursor-pointer border-gray-300 w-10 h-10 mr-4 hover:bg-blue-300 hover:text-white transition-all;
     }
 
-    .active {
-      @apply bg-blue-500 text-white;
-    }
     .btn-category,
     .btn-delete-image {
       @apply rounded border cursor-pointer border-gray-300 w-auto h-10 mr-4 hover:bg-blue-300 hover:text-white transition-all;
     }
 
     .active {
-      @apply bg-blue-500 text-white;
+      @apply bg-[#d5d6c3] text-[#231f20] text-lg;
     }
+    .btn-color.active {
+    @apply ring-2 ring-offset-2 ring-blue-500;
+  }
   </style>
 </MainLayout>
 
