@@ -28,7 +28,12 @@
  
     
   </div>
-
+<style>
+  .watchSlidesProgress{
+    width: 10px;
+    height: 10px;
+  }
+</style>
 
 
 
@@ -36,11 +41,13 @@
   <script is:inline>
     const swiper = new Swiper('.swiper', {
   // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-  autoplay: {
+    direction: 'horizontal',
+    loop: true,
+    SlidesProgress:false,
+    autoplay: {
     delay: 3000,
     disableOnInteraction: false,
+    
   },
 
   // If we need pagination
