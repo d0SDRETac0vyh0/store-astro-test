@@ -5,6 +5,7 @@ import PayButton from "@/components/webpay/PayButton";
 import ProductSlideshow from "@/components/products/ProductSlideshow.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import {actions} from 'astro:actions';  
+import Talla from "@/components/Frontend/Talla.astro";
 
 const {slug}=Astro.params;
 
@@ -72,7 +73,7 @@ const image = images[0].image.startsWith('http')
       ))
   }
 </ul>
-
+<Talla/>
       <!-- <h3 class="mt-5 te xt-pink-300">Cantidad disponible</h3>
       <div>
         <button class="btn-quantity text-pink-300">-</button>
@@ -143,26 +144,26 @@ const image = images[0].image.startsWith('http')
       quantityInput.value = quantity.toString();
     });
 
-    addToCardButton.addEventListener('click', async () => {
-      const size = document.querySelector('.selected-size')?.textContent;
-      if (!size) {
-        return alert('Seleccione una talla');
-      }
+    // addToCardButton.addEventListener('click', async () => {
+    //   const size = document.querySelector('.selected-size')?.textContent;
+    //   if (!size) {
+    //     return alert('Seleccione una talla');
+    //   }
 
-      addToCardButton.disabled = true;
+    //   addToCardButton.disabled = true;
 
-      const cart = CartCookiesClient.addItem({
-        productId: productIdInput.value,
-        size: size,
-        quantity: quantity,
-      });
+    //   const cart = CartCookiesClient.addItem({
+    //     productId: productIdInput.value,
+    //     size: size,
+    //     quantity: quantity,
+    //   });
 
-      itemsInCart.set(cart.length);
+    //   itemsInCart.set(cart.length);
 
-      // TODO: cambiar luego cuando tengamos los ViewTransitions
-      // window.location.href = '/cart';
-      await navigate('/#/cart');
-    });
+    //   // TODO: cambiar luego cuando tengamos los ViewTransitions
+    //   // window.location.href = '/cart';
+    //   await navigate('/#/cart');
+    // });
   });
 </script>
 

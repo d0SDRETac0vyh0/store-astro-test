@@ -4,7 +4,7 @@ import Navbar from "@/components/shared/Navbar.astro";
 import "@/assests/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 import Footer from "@/components/shared/Footer.astro";
-import Carusel from "@/components/Frontend/Carusel.astro";
+import Whats from "@/components/Frontend/Whats.astro";
 
 interface Props {
   title?: string;
@@ -48,6 +48,7 @@ const {
     <Navbar />
       <slot />
     <Footer/>
+    <Whats/>
 <script>
         // @ts-ignore
   window.SnipcartSettings = {
