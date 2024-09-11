@@ -24,10 +24,61 @@ const {products, totalPages} = data;
 if(data.products.length == 0){
   return Astro.redirect('/');
 }
----
 
+---
 <MainLayout>
   <main class="container m-auto max-w-4xl px-5 mt-8">
+    <div class="container mx-auto p-6">
+      <h1 class="text-3xl font-bold text-center mb-8 text-white">Selecciona una Prenda</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="/primavera_verano/categorias/top">
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 cursor-pointer">
+            <h2 class="text-xl font-semibold mb-4 text-center">Top</h2>
+          </div>
+        </a>
+        <a href="/primavera_verano/categorias/poleras">
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 cursor-pointer">
+            <h2 class="text-xl font-semibold mb-4 text-center">Poleras</h2>
+          </div>
+        </a>
+        <a href="/primavera_verano/categorias/blusas">
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 cursor-pointer">
+            <h2 class="text-xl font-semibold mb-4 text-center">Blusas</h2>
+          </div>
+        </a>
+        <a href="/primavera_verano/categorias/shorts">
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 cursor-pointer">
+            <h2 class="text-xl font-semibold mb-4 text-center">Shorts</h2>
+          </div>
+        </a>
+        <a href="/primavera_verano/categorias/faldas">
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 cursor-pointer">
+            <h2 class="text-xl font-semibold mb-4 text-center">Faldas</h2>
+          </div>
+        </a>
+        <a href="/primavera_verano/categorias/calzas">
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 cursor-pointer">
+            <h2 class="text-xl font-semibold mb-4 text-center">Calzas</h2>
+          </div>
+        </a>
+        <a href="/primavera_verano/categorias/pantalones">
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 cursor-pointer">
+            <h2 class="text-xl font-semibold mb-4 text-center">Pantalones</h2>
+          </div>
+        </a>
+        <a href="/primavera_verano/categorias/jeans">
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 cursor-pointer">
+            <h2 class="text-xl font-semibold mb-4 text-center">Jeans</h2>
+          </div>
+        </a>
+        <a href="/primavera_verano/categorias/enteritos">
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:bg-gray-100 cursor-pointer">
+            <h2 class="text-xl font-semibold mb-4 text-center">Enteritos</h2>
+          </div>
+        </a>
+      </div>
+    </div>
+    
   <h1 class="text-3xl" style="color: #EEB8C4;">Listado de productos</h1>
 
   <ProductList products={products} client:idle />

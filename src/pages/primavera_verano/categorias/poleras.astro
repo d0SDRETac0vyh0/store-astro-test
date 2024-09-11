@@ -12,8 +12,8 @@ const pageParam = Number(searchParams.get('page') ?? 1);
 const { data, error } = await actions.getProductsByPage.safe({
   page: pageParam,
   limit:6,
-  categorys:'Otoño/Invierno',
-  type:'faldas'
+  
+  type:'poleras'
 });
 
 if (error) {
@@ -28,11 +28,10 @@ if(data.products.length == 0){
 ---
 
 <MainLayout>
-  <main class="container m-auto max-w-4xl px-5 mt-8">
-  <h1 class="text-3xl" style="color: #EEB8C4;">Listado de productos</h1>
+  <h1 class="text-3xl mb-3" style="color: #ffffff;">Listado de productos</h1>
 
   <ProductList products={products} client:idle />
 
   <Pagination totalPages={totalPages}/>
-</main>
+
 </MainLayout>

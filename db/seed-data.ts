@@ -31,7 +31,7 @@ export const seedProducts: SeedProduct[] = [
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
     colors: ['red', 'blue', 'black', 'white'],  // Usando los colores válidos
     slug: 'mens_chill_crew_neck_sweatshirt',
-    type: 'shirts',
+    type: 'poleras',
     tags: ['sweatshirt'],
     title: ' Chaqueta básico de invierno',
     gender: 'women',
@@ -47,7 +47,7 @@ export const seedProducts: SeedProduct[] = [
     sizes: ['XS', 'S', 'M', 'XL', 'XXL'],
     colors: ['red', 'blue', 'black', 'white'],  // Usando los colores válidos
     slug: 'iphone_14_pro_max_chile_price',
-    type: 'shirts',
+    type: 'chaquetas',
     tags: ['jacket'],
     title: "Apple iPhone 14 Pro",
     gender: 'men',
