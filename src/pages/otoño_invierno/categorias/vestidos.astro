@@ -28,10 +28,12 @@ if(data.products.length == 0){
 ---
 
 <MainLayout>
+  <main class="container m-auto max-w-4xl px-5 mt-8">
+
   <h1 class="text-3xl mb-3" style="color: #ffffff;">Listado de productos</h1>
 
   <ProductList products={products} client:idle />
 
   <Pagination totalPages={totalPages}/>
-
+  </main>
 </MainLayout>
