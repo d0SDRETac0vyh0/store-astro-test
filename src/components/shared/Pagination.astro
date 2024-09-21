@@ -14,7 +14,7 @@ const currentPage=Math.max((pageParam > totalPages) ? totalPages:pageParam, 1);
 const path=url.pathname;
 ---
 
-<div class="flex justify-between my-32 items-center">
+<div class="flex justify-between my-24 items-center">
     <a
         href={`${path}?page=${Math.max(currentPage - 1, 1)}`}
         class="bg-[#d5d6c3] hover:bg-[#231f20] text-black hover:text-[#d5d6c3] font-bold py-1 px-3 border transition duration-200 ease-in-out rounded-lg"
@@ -22,7 +22,7 @@ const path=url.pathname;
         Anteriores
     </a>
 
-    <span class="text-purple-800">Página {currentPage} de {totalPages}</span>
+    <span class="text-[#231F20] text-xl">Página {currentPage} de {totalPages}</span>
 
     <a
         href={`${path}?page=${Math.min(currentPage + 1, totalPages)}`}

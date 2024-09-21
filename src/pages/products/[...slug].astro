@@ -38,7 +38,7 @@ const image = images[0].image.startsWith('http')
       <h2 class="text-2xl font-bold text-[#231f20]">{product.title}</h2>
       <h2 class="font-bold text-[#231f20]">${product.price}</h2>
         <!-- Colores disponibles -->
-        <h3 class="mt-5 text-[#231f20]">Colores disponibles</h3>
+        <h3 class="mt-5 mb-3 text-[#231f20]">Colores disponibles</h3>
         <div class="flex flex-wrap gap-4">
           {
             product.colors
@@ -53,12 +53,12 @@ const image = images[0].image.startsWith('http')
                   title={color} 
                   data-color={color}
                 >
-                  <span class="sr-only">{color}</span> <!-- Ocultamos el nombre del color para accesibilidad -->
+                  <span class="sr-only">{color}</span>
                 </button>
               ))
           }
         </div>
-        <h3 class="mt-5 text-[#231f20]">Tallas disponibles</h3>
+        <h3 class="mt-5 mb-3 text-[#231f20]">Tallas disponibles</h3>
 <ul class="flex gap-3 text-[#231f20]">
   {
     product.sizes

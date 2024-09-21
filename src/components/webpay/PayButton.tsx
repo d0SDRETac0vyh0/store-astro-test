@@ -56,7 +56,7 @@ const PayButton: React.FC<PayButtonProps> = ({ amount }) => {
       <img
         src="/webpaylogo1.png" // Reemplaza con la ruta correcta a la imagen del logo de Webpay
         alt="Webpay Logo"
-        className="mt-4 w-full h-auto max-w-xs mx-auto"
+        className="w-full h-auto max-w-xs mx-auto"
       />
     </div>
   );

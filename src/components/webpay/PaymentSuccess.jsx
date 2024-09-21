@@ -44,7 +44,7 @@ const PaymentSuccess = () => {
   }, []);
 
   if (loading) {
-    return <p className='text-fuchsia-500' >Cargando detalles...</p>;
+    return <p className='text-[#231F20]' >Cargando detalles...</p>;
   }
 
   if (error) {
@@ -52,7 +52,7 @@ const PaymentSuccess = () => {
   }
 
   return (
-    <div className='text-fuchsia-500'>
+    <div className='text-[#231F20]'>
       <h1>¡Pago Exitoso!</h1>
       {details ? (
         <div>
@@ -67,7 +67,7 @@ const PaymentSuccess = () => {
         <p>No se encontraron detalles de la transacción. 7w7</p>
       )}
       <div>
-        <button className="bg-fuchsia-600 text-white p-3 mt-4 rounded-xl hover:bg-fuchsia-700 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:ring-offset-2"
+        <button className="bg-[#d5d6c3] hover:bg-[#231f20] text-black hover:text-[#d5d6c3] font-bold py-1 px-7 mt-4 border transition duration-200 ease-in-out rounded-lg focus:ring-offset-2"
         >
         <a href="/">VOLVER</a>
         </button>
