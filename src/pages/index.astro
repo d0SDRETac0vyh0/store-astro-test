@@ -3,6 +3,7 @@
 
 import { ProductList } from '@/components';
 import Carusel from '@/components/Frontend/Carusel.astro';
+import Temporada from '@/components/Frontend/Temporada.astro';
 import Pagination from '@/components/shared/Pagination.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
 import { actions } from 'astro:actions';
@@ -29,20 +30,9 @@ if(data.products.length == 0){
   <Carusel/>
   <main class="container m-auto max-w-4xl px-5 mt-8">
   <h1 class="text-3xl text-[#231F20]">Nuestra Colección</h1>
-  <div class="grid grid-rows-1 grid-cols-2 w-[90%] gap-6 mx-auto max-[572px]:grid-cols-1 pt-12  ">
-  
-  
-    <div class="w-full h-[100] border-y-4 awd border-[#d5d6c3]">
-      <h1>Inivierno</h1>
-      <img src="images/products/invierno.jpg" alt="">
-    </div>
-  
-  
-    <div class=" w-full h-[100] border-y-4 border-[#d5d6c3]">
-      <h1>Primavera</h1>
-      <img src="images/products/Primavera.jpg" alt="">
-    </div>
-   </div>
+
+    <Temporada/>
+
 
   <h1 class="text-3xl text-[#231F20] pt-12 mb-5">Productos destacados</h1>
 
