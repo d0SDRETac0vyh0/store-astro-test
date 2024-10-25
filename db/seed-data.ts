@@ -18,7 +18,23 @@ type ValidSizes = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
 type ValidTypes = 'shirts' | 'pants' | 'hoodies' | 'hats' | 'beatles' | 'chaquetas' | 'vestidos' | 'pantys' | 
                 'bufandas' | 'sweater' | 'top' | 'poleras' | 'blusas' | 'shorts' | 'faldas' | 'calzas' | 
                 'pantalones' | 'jeans' | 'enteritos';
-type ValidColors = 'red' | 'blue' | 'black' | 'white' | 'green' | 'yellow' | 'pink' | 'purple' | 'gray' | 'orange'; // Colores válidos
+type ValidColors = 
+                | '#FF0000' | '#0000FF' | '#000000' | 'white' | '#98FB98' | 'yellow' 
+                | 'pink' | 'purple' | 'gray' | 'orange'
+                | 'gris-claro' | 'gris-oscuro' | 'carbón' | 'azul-marino' 
+                | 'azul-medianoche' | 'azul-claro' | 'denim' | 'azul-cielo' 
+                | 'azul-bebé' | 'turquesa' | 'verde-azulado' | 'verde-esmeralda' 
+                | 'verde-bosque' | 'verde-oliva' | 'verde-militar' | 'caqui' 
+                | 'canela' | 'beige' | 'camel' | 'marrón' | 'chocolate' 
+                | 'óxido' | 'burdeos' | 'rosa' | 'rubor' | 'rosado' 
+                | 'lavanda' | 'gris-pizarra' | 'gris-acero' | 'gris-perla' 
+                | 'gris-ardesia' | 'azul-real' | 'azul-acero' | 'azul-eléctrico' 
+                | 'azul-petróleo' | 'celeste' | 'azul-profundo' | 'cian' 
+                | 'aguamarina' | 'verde-lima' | 'verde-menta' | 'verde-musgo' 
+                | 'verde-pistacho' | 'amarillo-limón' | 'amarillo-dorado' 
+                | 'naranja' | 'naranja-coral' | 'mandarina' | 'marrón-rojizo' 
+                | 'cobre' | 'Vino' | 'rojo-granate' | 'fucsia' | 'violeta' 
+                | 'púrpura' | 'morado' | 'lila';
 type ValidCategorys = 'Otoño/Invierno' | 'Primavera/Verano';
 
 export const seedProducts: SeedProduct[] = [
@@ -29,7 +45,7 @@ export const seedProducts: SeedProduct[] = [
     stock: 7,
     price: 14990,
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-    colors: ['red', 'blue', 'black', 'white'],  // Usando los colores válidos
+    colors: ['#FF0000', '#0000FF', '#000000', 'white'],  // Asegúrate de que estos colores sean válidos
     slug: 'mens_chill_crew_neck_sweatshirt',
     type: 'poleras',
     tags: ['sweatshirt'],
@@ -45,7 +61,7 @@ export const seedProducts: SeedProduct[] = [
     stock: 5,
     price: 1499000,
     sizes: ['XS', 'S', 'M', 'XL', 'XXL'],
-    colors: ['red', 'blue', 'black', 'white'],  // Usando los colores válidos
+    colors: ['#FF0000', '#0000FF', '#000000', 'white'],  // Usando los colores válidos
     slug: 'iphone_14_pro_max_chile_price',
     type: 'chaquetas',
     tags: ['jacket'],
@@ -60,7 +76,7 @@ export const seedProducts: SeedProduct[] = [
     stock: 5,
     price: 9900,
     sizes: ['S', 'M', 'L'],
-    colors: ['black'],  // Usando los colores válidos
+    colors: ['#000000'],  // Usando los colores válidos
     slug: 'falda_mujer',
     type: 'faldas',
     tags: ['jacket'],
@@ -720,4 +736,5 @@ export const seedProducts: SeedProduct[] = [
   //   title: 'Kids Corp Jacket',
   //   gender: 'kid',
   // },
+  
 ];

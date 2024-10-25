@@ -37,27 +37,85 @@ const image = images[0].image.startsWith('http')
     <section>
       <h2 class="text-2xl font-bold text-[#231f20]">{product.title}</h2>
       <h2 class="font-bold text-[#231f20]">${product.price}</h2>
-        <!-- Colores disponibles -->
-        <h3 class="mt-5 mb-3 text-[#231f20]">Colores disponibles</h3>
-        <div class="flex flex-wrap gap-4">
-          {
-            product.colors
-              .split(',')
-              .map((color) => (
-                <button
-                  type="button"
-                  class="btn-color w-10 h-10 rounded-full border cursor-pointer border-gray-300 hover:border-gray-500 transition-all"
-                  style={`background-color: ${color};`}
-                  onclick="this.classList.toggle('active-color')" 
-                  aria-label={color}
-                  title={color} 
-                  data-color={color}
-                >
-                  <span class="sr-only">{color}</span>
-                </button>
-              ))
-          }
-        </div>
+       <!-- Colores disponibles -->
+<h3 class="mt-5 mb-3 text-[#231f20]">Colores disponibles</h3>
+<div class="flex flex-wrap gap-4">
+  {
+    Object.entries({
+      "Rojo": "#FF0000",
+      "Azul": "#0000FF",
+      "Negro": "#000000",
+      "Blanco": "#FFFFFF",
+      "Verde": "#008000",
+      "Amarillo": "#FFFF00",
+      "Rosa": "#FFC0CB",
+      "Púrpura": "#800080",
+      "Gris": "#808080",
+      "Naranja": "#FFA500",
+      "Gris claro": "#D3D3D3",
+      "Gris oscuro": "#A9A9A9",
+      "Carbón": "#36454F",
+      "Azul marino": "#000080",
+      "Azul medianoche": "#191970",
+      "Azul claro": "#ADD8E6",
+      "Denim": "#4682B4",
+      "Azul cielo": "#87CEEB",
+      "Azul bebé": "#BFEFFF",
+      "Turquesa": "#40E0D0",
+      "Verde azulado": "#008080",
+      "Verde esmeralda": "#50C878",
+      "Verde bosque": "#228B22",
+      "Verde oliva": "#808000",
+      "Verde militar": "#556B2F",
+      "Caqui": "#C3B091",
+      "Canela": "#D2691E",
+      "Beige": "#F5F5DC",
+      "Camel": "#C19A6B",
+      "Marrón": "#8B4513",
+      "Chocolate": "#7B3F00",
+      "Óxido": "#B7410E",
+      "Burdeos": "#800000",
+      "Rosado": "#FF69B4",
+      "Lavanda": "#E6E6FA",
+      "Gris pizarra": "#708090",
+      "Azul acero": "#A3C1DA",
+      "Azul real": "#4682B4",
+      "Aguamarina": "#7FFFD4",
+      "Verde lima": "#32CD32",
+      "Verde menta": "#98FB98",
+      "Verde musgo": "#8FBC8F",
+      "Verde pistacho": "#D0F0C0",
+      "Amarillo limón": "#FFFACD",
+      "Amarillo dorado": "#FFD700",
+      "Naranja claro": "#FFA07A",
+      "Tomate": "#FF6347",
+      "Naranja coral": "#FF4500",
+      "Mandarina": "#FF8C00",
+      "Rojo granate": "#B22222",
+      "Cobre": "#B87333",
+      "Vino": "#800000",
+      "Rojo granate oscuro": "#A00000",
+      "Fucsia": "#FF00FF",
+      "Violeta": "#8A2BE2",
+      "Morado": "#800080",
+      "Lila": "#DDA0DD"
+    })
+    .filter(([colorName]) => product.colors.split(',').includes(colorName)) // Filtra solo los colores disponibles
+    .map(([colorName, colorCode]) => (
+      <button
+        type="button"
+        class="btn-color w-10 h-10 rounded-full border cursor-pointer border-gray-300 hover:border-gray-500 transition-all"
+        style={`background-color: ${colorCode};`}
+        onclick="this.classList.toggle('active-color')" 
+        aria-label={colorName}
+        title={colorName} 
+        data-color={colorName}
+      >
+        <span class="sr-only">{colorName}</span>
+      </button>
+    ))
+  }
+</div>
         <h3 class="mt-5 mb-3 text-[#231f20]">Tallas disponibles</h3>
 <ul class="flex gap-3 text-[#231f20]">
   {
